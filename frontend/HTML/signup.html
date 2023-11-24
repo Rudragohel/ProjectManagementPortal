@@ -11,7 +11,7 @@
 <body>
     <!-- main container -->
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="d-flex row border rounded-5 p-3 bg-white shadow box-area" style="width: 700px;">
+        <div class="d-flex row border rounded-5 p-3 shadow box-area" style="width: 700px;">
             <div class="header-text mb-4 justify-content-center align-items-center d-flex">
                 <h3>Create Account</h3>
             </div>
@@ -22,6 +22,9 @@
             <div class="input-group mb-3">
                 <input type="email" class="form-control form-control-lg bg-light fs-6" placeholder="Email ID">
             </div>
+            <div class="input-group mb-3" id="studentIdGroup" style="display: none;">
+                <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Student ID" style="width: 100%;">
+            </div>
             <div class="input-group mb-3">
                 <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password">
             </div>
@@ -30,29 +33,48 @@
             </div>
             <div class="input-group d-flex justify-content-between mb-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="userType" id="adminRadio" checked>
+                    <label class="form-check-label" for="adminRadio">
                       Admin
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="userType" id="facultyRadio">
+                    <label class="form-check-label" for="facultyRadio">
                       Faculty
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    <label class="form-check-label" for="flexRadioDefault2">
+                    <input class="form-check-input" type="radio" name="userType" id="studentRadio">
+                    <label class="form-check-label" for="studentRadio">
                       Student
                     </label>
                   </div>
             </div>
             <div class="input-group mb-3">
-                <button class="btn btn-lg btn-primary w-100 fs-6 submit-button">Submit</button>
+                <button class="btn btn-lg btn-primary w-100 fs-6 submit-button" onclick="submitForm()">Submit</button>
             </div>
         </div>
     </div>
-    
+
+    <script>
+        function submitForm() {
+            // Add your form submission logic here
+            alert('Form submitted!');
+        }
+
+        // Add event listeners to radio buttons to toggle Student ID input visibility
+        document.getElementById('adminRadio').addEventListener('change', function () {
+            document.getElementById('studentIdGroup').style.display = 'none';
+        });
+
+        document.getElementById('facultyRadio').addEventListener('change', function () {
+            document.getElementById('studentIdGroup').style.display = 'none';
+        });
+
+        document.getElementById('studentRadio').addEventListener('change', function () {
+            document.getElementById('studentIdGroup').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
