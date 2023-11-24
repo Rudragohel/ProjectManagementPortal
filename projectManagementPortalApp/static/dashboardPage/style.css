@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.875rem;
+    margin:0px;
+    opacity: 1;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+a{
+    font-family: 'Poppins',sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* layout for dashboard skeleton*/
+.container{
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar{
+    max-width: 264px;
+    min-width: 264px;
+    background: var(--bs-dark);
+    transition: all 0.35s ease-in-out;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 0;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    width: 100%;
+    background : var(--bs-dark-bg-subtle);
+}
+
+/* sidebar elements style */
+.user-name{
+    padding:1.15rem;
+}
+.user-name a{
+    color: #e9ecef;
+    font-size:1.15rem;
+    font-weight: 600;
+}
+
+.sidebar-nav{
+    flex-grow:1;
+    list-style: none;
+    padding-left:0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.sidebar-header{
+    color:#e9ecef;
+    font-size:.75rem;
+    padding: 1.5rem 1.5rem .375rem;
+}
+
+a.sidebar-link{
+    padding: .625rem 1.625rem;
+    color:#e9ecef;
+    position: relative;
+    display: block;
+    font-size: 0.875rem;
+}
+
+.avatar{
+    height:40px;
+    width: 40px;
+}
+
+.navbar-expand .navbar-nav{
+    margin-left:auto;
+}
+
+.content{
+    margin:20px;
+    margin-top: 50px;
+}

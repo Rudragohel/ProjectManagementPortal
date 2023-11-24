@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'loginPage/style.css' %}">
+    <style media="screen">
+
+
+</style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    {% csrf_token %}
+    <form method="post" action="/login/">
+        <h3>Login Here </h3>
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" placeholder="Enter Username" id="username" name="username">
+{#        {% if redirect_url %}#}
+{#        <input type="hidden" id="redirectTo" value="{{ redirect_url }}">#}
+{#        {% endif %}#}
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" name="pass">
+        <label>
+            {% if fail %}
+                Username or password incorrect!!
+            {% endif %}
+        </label>
+        <button type="submit" class="submitBtn">Log In</button>
+        <!-- <input type="button" value=""> -->
+        <!-- <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div> -->
+        <div class="ForgetCreateDiv">
+                <a href="{% url 'forget_password' %}">Forget Password</a>
+                <a href="{% url 'register' %}" >Create a account</a>
+        </div>
+    </form>
+    {% if displayMessage == "yes" %}
+        <div class="message {{ message_type }}">
+            <p class="messageText">{{ message_content }}</p>
+{#            <button class="messageBtn"> X </button>#}
+        </div>
+    {% endif %}
+</body>
+</html>
