@@ -2,12 +2,13 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    background: #3f3b3b;
+    background: #66a2ea;
 }
 
 .box-area{
     width: 930px;
     border-radius: 30px;
+    background: #01285e;
 }
 
 .left-box{
@@ -19,12 +20,30 @@ body{
 }
 
 .submit-button{
-    background-color: green;
+    background-color: white;
+    color:black;
 }
 ::placeholder{
     font-size : 16px;
 }
 
+.header-text{
+    color:white;
+}
+p{
+    color:white;
+}
+a{
+    color:white;
+}
+
+.form-check-label{
+    color:white;
+}
+
+.input-box{
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+}
 @media  screen and (max-width: 768px) {
     .box-area{
         margin: 0 10px;
