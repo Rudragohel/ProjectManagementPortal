@@ -5,7 +5,7 @@ from django.template import loader
 from pymongo.mongo_client import MongoClient
 
 client = MongoClient(
-    "mongodb+srv://projectManagementPortal:projectManagementPortal@cluster0.abehjnm.mongodb.net?retryWrites=true&w=majority")
+    "mongodb+srv://projectManagementPortal:projectManagementPortal@cluster0.abehjnm.mongodb.net?retryWrites=true&w=majority&ssl=true&ssl_cert_reqs=CERT_NONE")
 db = client.get_database('ProjectManagementDB')
 
 
