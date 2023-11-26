@@ -51,6 +51,10 @@ a{
     margin-right:0;
 }
 
+/* side bar hiding  */
+#sidebar.collapsed{
+    margin-left:-264px;
+}
 .main{
     display: flex;
     flex-direction: column;
@@ -130,7 +134,7 @@ a.sidebar-link{
 }
 
 .illustration-img{
-    max-width: 150px;
+    max-width: 125px;
     width: 100%;
 }
 /* table styling  */
