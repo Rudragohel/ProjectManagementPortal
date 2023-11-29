@@ -40,8 +40,30 @@ function submitAssignment() {
     // Clear the added students list
     addedStudentsList.innerHTML = '';
 
-    // Close the modal
-    const modal = new bootstrap.Modal(document.getElementById('assignProjectModal'));
-    modal.hide();
 }
 
+function submitPDFReport() {
+    // Add your logic here to handle PDF report submission
+    // Retrieve the selected PDF file using document.getElementById('reportFile').files[0]
+    // Perform necessary actions, such as sending the file to the server
+
+    // For this example, we'll log a message to the console
+    console.log('PDF report submitted.');
+
+    // Clear the form
+    document.getElementById('pdfSubmissionForm').reset();
+}
+
+
+var studentTabs = new bootstrap.Tab(document.getElementById('addOneStudentTab'));
+    studentTabs.show();
+
+var studentTabs = new bootstrap.Tab(document.getElementById('uploadExcelStudentTab'));
+studentTabs.show();
+
+var facultyTabs = new bootstrap.Tab(document.getElementById('addOneFacultyTab'));
+    facultyTabs.show();
+    
+var facultyTabs = new bootstrap.Tab(document.getElementById('uploadExcelFacultyTab'));
+facultyTabs.show();
+    

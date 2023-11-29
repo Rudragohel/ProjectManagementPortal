@@ -9,6 +9,42 @@
   <script src="https://kit.fontawesome.com/ae360af17e.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../CSS/dashboard.css">
   <title>Project Management Portal</title>
+
+  <style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container_{
+        width: 75%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin-top: 50px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+</style>
+
 </head>
 
 <body>
@@ -134,90 +170,45 @@
           </ul>
         </div>
       </nav>
-      <main class="content px-3 py-2">
-        <!-- cards for showing content -->
-        <div class="container-fluid">
-          <div class="mb-3">
-            <h3>Admin Dashboard!</h3>
-          </div>
-          <div class="row">
-            <!-- number of faculties card  -->
-            <div class="col-12 col-md-6 d-flex">
-              <div class="card flex-fill border-0 illustration">
-                <div class="card-body p-0 d-flex flex-fill">
-                  <div class="row g-0 w-100">
-                    <div class="col-6">
-                      <div class="p-3 m-1">
-                        <h4>Number of Faculties</h4>
-                        <h2>10</h2>
-                      </div>
-                    </div>
-                    <div class="col-6 align-self-end text-end">
-                      <img src="../../images/professor.png" class="img-fluid illustration-img" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <div class="container_ mt-5">
+        <h1 class="text-center">Project Details</h1>
+        <hr>
+
+        <!-- Project details section -->
+        <div class="card mb-4">
+            <div class="card-header">
+                Project Information
             </div>
-            <!-- number of students card  -->
-            <div class="col-12 col-md-6 d-flex">
-              <div class="card flex-fill border-0 illustration">
-                <div class="card-body p-0 d-flex flex-fill">
-                  <div class="row g-0 w-100">
-                    <div class="col-6">
-                      <div class="p-3 m-1">
-                        <h4>Number of Students</h4>
-                        <h2>50</h2>
-                      </div>
-                    </div>
-                    <div class="col-6 align-self-end text-end">
-                      <img src="../../images/student.png" class="img-fluid illustration-img" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="card-body">
+                <h5 class="card-title" id="projectName">Project Name: Example Project</h5>
+                <p class="card-text" id="facultyName">Faculty: John Doe</p>
+                <p class="card-text" id="studentsAssigned">Students Assigned: Alice, Bob, Charlie</p>
+                <p class="card-text" id="projectStatus">Status: In Progress</p>
             </div>
-          </div>
-          <div class="row">
-            <!-- on going projects card  -->
-            <div class="col-12 col-md-6 d-flex">
-              <div class="card flex-fill border-0 illustration">
-                <div class="card-body p-0 d-flex flex-fill">
-                  <div class="row g-0 w-100">
-                    <div class="col-6">
-                      <div class="p-3 m-1">
-                        <h4>On Going Projects</h4>
-                        <h2>15</h2>
-                      </div>
-                    </div>
-                    <div class="col-6 align-self-end text-end">
-                      <img src="../../images/on_going.png" class="img-fluid illustration-img" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- completed projects card  -->
-            <div class="col-12 col-md-6 d-flex">
-              <div class="card flex-fill border-0 illustration">
-                <div class="card-body p-0 d-flex flex-fill">
-                  <div class="row g-0 w-100">
-                    <div class="col-6">
-                      <div class="p-3 m-1">
-                        <h4>Completed Projects</h4>
-                        <h2>30</h2>
-                      </div>
-                    </div>
-                    <div class="col-6 align-self-end text-end">
-                      <img src="../../images/completed.png" class="img-fluid illustration-img" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
+        <!-- PDF report submission section -->
+        <div class="card">
+            <div class="card-header">
+                Submit PDF Report
+            </div>
+            <div class="card-body">
+                <form id="pdfSubmissionForm">
+                    <div class="mb-3">
+                        <label for="reportFile" class="form-label">Choose PDF File</label>
+                        <input type="file" class="form-control" id="reportFile" accept=".pdf">
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <button type="button" class="btn btn-primary" onclick="submitPDFReport()">Submit Report</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    
         
     </div>
   </div>
@@ -269,7 +260,7 @@
 
   <!-- popup for adding student-->
 
-  <!-- <div class="modal fade" id="add-student-modal" tabindex="-1" aria-labelledby="addStudentModalLabel"
+  <div class="modal fade" id="add-student-modal" tabindex="-1" aria-labelledby="addStudentModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -278,8 +269,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-           Your form goes here -->
-          <!-- <form>
+          <!-- Your form goes here -->
+          <form>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="name-label">Name</label>
               <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Name">
@@ -300,155 +291,10 @@
         </div>
       </div>
     </div>
-  </div> -->
-
-
-  <div class="modal fade" id="add-student-modal" tabindex="-1" aria-labelledby="addStudentModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addStudentModalLabel">Add Student</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="addOneTab" data-bs-toggle="tab" href="#addOne" role="tab"
-                            aria-controls="addOne" aria-selected="true">Add One</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="uploadExcelTab" data-bs-toggle="tab" href="#uploadExcel" role="tab"
-                            aria-controls="uploadExcel" aria-selected="false">Upload Excel</a>
-                    </li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content mt-2">
-                    <!-- Add One Tab -->
-                    <div class="tab-pane fade show active" id="addOne" role="tabpanel" aria-labelledby="addOneTab">
-                        <form>
-                            <!-- Your form elements for adding one student go here -->
-                            <!-- For example -->
-                              <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="name-label">Name</label>
-                                <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Name">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleFormControlInput2" class="email-label">Email Address</label>
-                                <input type="email" class="form-control form-control-lg bg-light fs-6" placeholder="Email ID">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleFormControlInput3" class="id-label">Student ID</label>
-                                <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Student ID">
-                              </div>
-                          </div>
-                            <!-- ... Other form fields ... -->
-                        </form>
-                    </div>
-
-                    <!-- Upload Excel Tab -->
-                    <div class="tab-pane fade" id="uploadExcel" role="tabpanel" aria-labelledby="uploadExcelTab">
-                        <form>
-                            <!-- Your form elements for uploading Excel go here -->
-                            <!-- For example -->
-                            <div class="mb-3">
-                                <label for="excelFile" class="form-label">Upload Excel File</label>
-                                <input type="file" class="form-control" id="excelFile" accept=".xlsx, .xls">
-                            </div>
-                            <!-- ... Other form fields ... -->
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add Student</button>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+  </div>
 
   <!-- pop-up for adding faculty -->
-
   <div class="modal fade" id="add-faculty-modal" tabindex="-1" aria-labelledby="addFacultyModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addFacultyModalLabel">Add Faculty</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" id="facultyTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="addOneFacultyTab" data-bs-toggle="tab" href="#addOneFaculty"
-                            role="tab" aria-controls="addOneFaculty" aria-selected="true">Add One</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="uploadExcelFacultyTab" data-bs-toggle="tab"
-                            href="#uploadExcelFaculty" role="tab" aria-controls="uploadExcelFaculty"
-                            aria-selected="false">Upload Excel</a>
-                    </li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content mt-2">
-                    <!-- Add One Tab -->
-                    <div class="tab-pane fade show active" id="addOneFaculty" role="tabpanel"
-                        aria-labelledby="addOneFacultyTab">
-                        <form>
-                            <!-- Your form elements for adding one faculty go here -->
-                            <!-- For example -->
-                            <div class="mb-3">
-                                <label for="facultyName" class="name-label">Name</label>
-                                <input type="text" class="form-control form-control-lg bg-light fs-6"
-                                    placeholder="Faculty Name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="facultyEmail" class="email-label">Email Address</label>
-                                <input type="email" class="form-control form-control-lg bg-light fs-6"
-                                    placeholder="Email ID">
-                            </div>
-                            <div class="mb-3">
-                                <label for="facultyID" class="id-label">Faculty ID</label>
-                                <input type="text" class="form-control form-control-lg bg-light fs-6"
-                                    placeholder="Faculty ID">
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Upload Excel Tab -->
-                    <div class="tab-pane fade" id="uploadExcelFaculty" role="tabpanel"
-                        aria-labelledby="uploadExcelFacultyTab">
-                        <form>
-                            <!-- Your form elements for uploading Excel go here -->
-                            <!-- For example -->
-                            <div class="mb-3">
-                                <label for="excelFileFaculty" class="form-label">Upload Excel File</label>
-                                <input type="file" class="form-control" id="excelFileFaculty" accept=".xlsx, .xls">
-                            </div>
-                            <!-- ... Other form fields ... -->
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add Faculty</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-  <!-- <div class="modal fade" id="add-faculty-modal" tabindex="-1" aria-labelledby="addFacultyModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -457,8 +303,8 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Your form goes here -->
-          <!-- <form>
+          <!-- Your form goes here -->
+          <form>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="name-label">Name</label>
               <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Name">
@@ -479,7 +325,7 @@
         </div>
       </div>
     </div>
-  </div> --> 
+  </div>
 
   <!-- pop-up for removing student -->
   <div class="modal fade" id="remove-student-modal" tabindex="-1" aria-labelledby="removeStudentModalLabel"
